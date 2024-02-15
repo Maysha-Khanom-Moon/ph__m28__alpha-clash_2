@@ -4,9 +4,20 @@ function handleKeyboardKey(event) {
     // get the expected to press
     const currentChar = document.getElementById('current-char').innerText;
 
+    // Enter the game
+    if (playerPressed === 'Enter') {
+        removeBG(currentChar);
 
-    // 
+        play('home-screen');
+    }
 
+    // Escape the game
+    if (playerPressed === 'Escape') {
+        hidden('play-ground');
+        hidden('score-board');
+    
+        showElement('home-screen');
+    }
 
     // check: matched or not
     if(currentChar == playerPressed) {
@@ -26,7 +37,7 @@ function handleKeyboardKey(event) {
         removeBG(currentChar);
         gameLoop();
     }
-    else {
+    else if(playerPressed !== 'Enter') {
         // step 1: get the current life
         const currentLife = getTextElementValue('current-life');
 
@@ -67,8 +78,7 @@ function play(now) {
     hidden(now);
 
     // reset score and life
-    setUpdatedTextValue('current-score', 0);
-    setUpdatedTextValue('current-life', 5);
+    reset();
 
     // show the play ground
     showElement('play-ground')

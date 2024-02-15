@@ -9,6 +9,12 @@ function showElement(now) {
     Now.classList.remove('hidden');
 }
 
+// reset score and life
+function reset() {
+    setUpdatedTextValue('current-score', 0);
+    setUpdatedTextValue('current-life', 5);
+}
+
 // random alphabate generator
 function getRandomLetter() {
     // get or create an alphabet array;
