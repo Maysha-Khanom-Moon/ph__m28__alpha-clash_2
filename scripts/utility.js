@@ -1,14 +1,15 @@
 function hidden(now) {
     const home = document.getElementById(now);
-    // home.classList.add('hidden')
-    home.setAttribute('hidden', 'true');
+    home.classList.add('hidden')
+}
 
-    const playground = document.getElementById('play-ground');
-    playground.classList.remove('hidden');
+// show interface 
+function showElement(now) {
+    const Now = document.getElementById(now);
+    Now.classList.remove('hidden');
 }
 
 // random alphabate generator
-
 function getRandomLetter() {
     // get or create an alphabet array;
     const alphabate = 'abcdefghijklmnopqrstuvwxyz';
@@ -26,4 +27,25 @@ function getRandomLetter() {
 function setBG(char) {
     const key = document.getElementById(char);
     key.classList.add('bg-[#FFA500]')
+}
+
+// remove bg-color
+function removeBG(char) {
+    const key = document.getElementById(char);
+    key.classList.remove('bg-[#FFA500]')
+}
+
+
+// get current text value
+function getTextElementValue(elementId) {
+    const element = document.getElementById(elementId);
+    const elementValueText = element.innerText;
+    const value = parseInt(elementValueText);
+    return value;
+}
+
+// set updated value
+function setUpdatedTextValue(elementId, newValue) {
+    const element = document.getElementById(elementId);
+    element.innerText = newValue;
 }
